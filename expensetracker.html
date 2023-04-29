@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+ .header{
+    position: initial;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 13%;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    z-index: 100;
+ 
+}
+.navbar a{
+    position: initial;
+    font-size: 2em;
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+    
+  
+    left: 0;
+    width: 100%;
+    height: 2px;
+  
+    
+   
+}
+
+section{
+    position: initial;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    
+    
+}
+.showcase video{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.form-box{
+    position: relative;
+    width: 380px;
+  
+    background: transparent; 
+    backdrop-filter: blur(5px);
+    border: 2px solid white;
+    border-radius: 20px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center  rgb(250, 191, 240);
+    box-shadow: 10px 10px 10px rgb(248, 245, 248);
+   
+   
+}
+
+h2{
+    font-size: 2.0em;
+    color: hsl(0, 2%, 8%);
+    text-align: center;
+    
+}
+h1{
+    font-size: 2em;
+    color: #f1f0f7;
+    text-align: center;
+}
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    height:310;
+    border-bottom: 2px solid #f80505;
+    box-shadow: 5px 5px 5px rgb(233, 12, 12);
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #020202;
+    font-size: 1.5em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #181616;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #e91010;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+button {
+    width: 100%;
+    height: 35px;
+    border-radius: 40px;
+    background: #fa1723;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+}
+.text-item{
+    background: transparent ;
+    backdrop-filter: blur(5px);
+    font-size: 1.1em;
+    color: #4d1be0;
+   
+}
+.text-item h1{
+    color: black;
+}
+
+  </style>
+  </head>
+  <body>
+     <!-- NAVBAR CREATION -->
+   <header class="header">
+    <nav class="navbar">
+         <a class='a' href="#">Home</a>
+          <a class='a' href="#">About</a>
+          <a class='a' href="#">Contact</a>
+          <a class='a' href="#">Help</a>
+          
+    </nav>
+    <!---->
+    </header>
+    <section class="showcase">
+        <video src="herbst_version1.mp4" muted loop autoplay></video>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="my-form" action="submit"  onsubmit="registerUser()">
+                    <h2>Expense Tracker</h2>
+                    <div class="inputbox">
+                        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                        <input type="name" name="name" id="name"  placeholder="enter expenses" required>
+                        <label for="">Choose Expense</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                        <input type="description" name="description" id="description" placeholder="enter description" required>
+                        <label for="">Choose Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                        <input type="phone" name="phone" id="phone" placeholder="enter catagory" required>
+                        <label for="">Choose Category</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <input type="date" name="date" id="date" placeholder="enter a date" required>
+                        <label for="" >Time</label>
+                    </div>
+                    <button class="btn" type="submit" value="submit">Submit</button>
+                    
+                </form>
+              
+               
+            </div>
+        </div>
+        <div class="item">
+            <h1 class="logo"><i class='bx bxl-xing'></i>Call Service</h1>
+            <div class="text-item">
+                <h1>Welcome! <br><span>
+                    To Our website
+                </span></h1>
+                <p>This is India's most visited service website.Gest result faster,brighter and sharper.</p>
+                <h4>Good Luck!</h4>
+                <ul id="items" class="list-group">
+                    
+                </ul>
+            </div>
+        </div>
+       
+    </section>
+    <script src="expencetracker.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function registerUser() {
+            const name=document.getElementById("name").value;
+            const email=document.getElementById("email").value;
+            const phone=document.getElementById("phone").value;
+            const date=document.getElementById("date").value;
+            
+            console.log(name);
+            console.log(email);
+            console.log(phone);
+            console.log(date);
+        }
+    </script>
+   
+</body>
+</html>
